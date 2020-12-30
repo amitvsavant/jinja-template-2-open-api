@@ -15,4 +15,4 @@ The destination folder where the final specification files will be created after
 **store-template.yaml:** Generic template file of a Store API.
 
 ## License
-- The source code in this project is published under [MIT License](https://github.com/amitvsavant/jinja-template-2-open-api/blob/main/LICENSE).
+- The source code in this project is published under [MIT License](https://github.com/amitvsavant/jinja-template-2-open-api/blob/master/LICENSE.md).
