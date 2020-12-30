@@ -1,0 +1,40 @@
+{
+  "stores": [
+    {
+      "storeId":"pet",
+      "storeTitle":"Pet",
+      "description":"This is API Specification for Pet Store.",
+      "serverUrl":"http://api.petstore.com/v1",
+      "paths": [
+        {
+          "path":"/findByName",
+          "pathOperation":"get",
+          "pathSummary":"Finds Pets by name."
+        },
+        {
+          "path":"/findByStatus",
+          "pathOperation":"get",
+          "pathSummary":"Finds Pets by status."
+        }
+      ]
+    },
+    {
+      "storeId":"book",
+      "storeTitle":"Book",
+      "description":"This is API Specification for Book Store.",
+      "serverUrl":"http://api.bookstore.com/v1",
+      "paths": [
+        {
+          "path":"/findByName",
+          "pathOperation":"get",
+          "pathSummary":"Finds Books by name."
+        },
+        {
+          "path":"/findByStatus",
+          "pathOperation":"get",
+          "pathSummary":"Finds Books by status."
+        }
+      ]
+    }
+  ]
+}

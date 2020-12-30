@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: {{store.storeTitle}} Store
+  description: {{store.description}}
+  version: 1.0.0
+servers:
+  - url: {{store.serverUrl}}
+paths:
+  {% for path in store.paths %}
+  {{path.path}}:
+    {{path.pathOperation}}:
+      summary: {{path.pathSummary}}
+      responses:
+        '200':    # status code
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/{{store.storeTitle}}'
+        '400':
+          description: Invalid ID supplied
+          content: {}
+        '404':
+          description: {{store.storeTitle}} not found
+          content: {}
+  {% endfor %}
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+      xml:
+        name: Category
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+      xml:
+        name: Tag
+    {{store.storeTitle}}:
+      required:
+        - name
+        - photoUrls
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        category:
+          $ref: '#/components/schemas/Category'
+        name:
+          type: string
+          example: Husky
+        photoUrls:
+          type: array
+          xml:
+            name: photoUrl
+            wrapped: true
+          items:
+            type: string
+        tags:
+          type: array
+          xml:
+            name: tag
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/Tag'
+        status:
+          type: string
+          description: pet status in the store
+          enum:
+            - available
+            - pending
+            - sold
+      xml:
+        name: Pet
